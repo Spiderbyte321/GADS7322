@@ -1,72 +1,103 @@
+using System;
+using System.Collections.Generic;
+using System.Threading;
 using Managers;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float MoveSpeed;
+    [Header("Player Components")]
     [SerializeField] private EElement[] AvailableElements;
+    [SerializeField] private Rigidbody2D playerBody;
+    
+    [Header("Player Values")]
+    [SerializeField] private float maxMoveSpeed;
+    [SerializeField] private float JumpSpeed;
+    [SerializeField] private float jumpHeight;
+    [SerializeField] private EElement defaultElement;
 
+    
+    
     private EElement chosenElement;
-    
-    
-    
-    // test using legacy control scheme and rework to use new scheme
-    // don't work too hard on this yet cause kenton tested out making co op stuff so ask him first
-    
-    
-    void Update()
+    private Queue<EElement> PlayerElements = new Queue<EElement>();
+    private Stack<EElement> SwapStack = new Stack<EElement>();
+
+    private void Start()
+    {
+        foreach (EElement element in AvailableElements)
+        {
+            PlayerElements.Enqueue(element);
+        }
+    }
+
+
+    private void ReverseElementOrder()
+    {
+        for(int i=0;i<PlayerElements.Count;i++)
+        {
+            SwapStack.Push(PlayerElements.Dequeue());
+        }
+
+        for(int i=0;i<SwapStack.Count;i++)
+        {
+            PlayerElements.Enqueue(SwapStack.Pop());
+        }
+    }
+
+    private void UpdateGameManager()
+    {
+        GameManager.Instance.PlayerSwitchedElement(chosenElement);
+    }
+
+    private void Cycle()
+    {
+        PlayerElements.Enqueue(chosenElement);
+        chosenElement = PlayerElements.Dequeue();
+    }
+
+
+    public void MovePlayer(InputAction.CallbackContext contextCallback)//find a way to slow down rather than dead stop
+    {
+        Vector2 CallbackDirection = contextCallback.ReadValue<Vector2>();
+
+        Vector2 MoveDirection = new Vector2(CallbackDirection.x*maxMoveSpeed,playerBody.linearVelocity.y);
+        Vector2 MoveVector = MoveDirection;
+
+        playerBody.linearVelocity = MoveVector;
+    }
+
+
+    public void Jump(InputAction.CallbackContext contextCallback)
     {
 
-        if(Input.GetKey(KeyCode.A))
-        {
-            MovePlayer(Vector3.left);
-        }
+        Vector2 JumpDirection = new Vector2(playerBody.linearVelocity.x, jumpHeight*JumpSpeed);
+
+        playerBody.linearVelocity = JumpDirection;
+    }
+
+    public void CycleElementForward(InputAction.CallbackContext contextCallback)
+    {
+        if(!contextCallback.performed)
+            return;
         
-        if(Input.GetKey(KeyCode.D))
-        {
-            MovePlayer(Vector3.right);
-        }
+        Cycle();
+        Debug.Log(chosenElement); 
+        UpdateGameManager();
+    }
 
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            MovePlayer(Vector3.up);
-        }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            GameManager.Instance.PlayerSwitchedElement(chosenElement);
-        }
-
-        if(Input.GetKeyDown(KeyCode.F))
-        {
-            chosenElement = AvailableElements[0];
-            GameManager.Instance.PlayerSwitchedElement(chosenElement);
-        }
-
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            chosenElement = AvailableElements[1];
-            GameManager.Instance.PlayerSwitchedElement(chosenElement);
-        }
-
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            chosenElement = AvailableElements[2];
-            GameManager.Instance.PlayerSwitchedElement(chosenElement);
-        }
+    public void CycleElementBackward(InputAction.CallbackContext contextCallback)
+    {
+        if(!contextCallback.performed)
+            return;
         
+        ReverseElementOrder();
+        Cycle();
+        Debug.Log(chosenElement);
+        ReverseElementOrder();
+       UpdateGameManager();
     }
-
-
-    private void MovePlayer(Vector3 AMoveDirection)
-    {
-        Vector3 MoveVector = AMoveDirection * (MoveSpeed * Time.deltaTime);
-
-        gameObject.transform.position += MoveVector;
-    }
-
-    private void SwitchElement(EElement AElementToSwitchTo)
-    {
-        chosenElement = AElementToSwitchTo;
-    }
+    
+    
+    
 }
