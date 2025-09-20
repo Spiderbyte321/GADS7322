@@ -49,12 +49,8 @@ public class PlayerController : MonoBehaviour
     {
         GameManager.Instance.PlayerSwitchedElement(chosenElement);
     }
-
-    private void Cycle()
-    {
-        PlayerElements.Enqueue(chosenElement);
-        chosenElement = PlayerElements.Dequeue();
-    }
+    
+    
 
 
     public void MovePlayer(InputAction.CallbackContext contextCallback)//find a way to slow down rather than dead stop
@@ -70,6 +66,11 @@ public class PlayerController : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext contextCallback)
     {
+        if(!contextCallback.performed)
+            return;
+        
+        
+        Debug.Log("jumping");
 
         Vector2 JumpDirection = new Vector2(playerBody.linearVelocity.x, jumpHeight*JumpSpeed);
 
@@ -81,7 +82,8 @@ public class PlayerController : MonoBehaviour
         if(!contextCallback.performed)
             return;
         
-        Cycle();
+        PlayerElements.Enqueue(chosenElement);
+        chosenElement = PlayerElements.Dequeue();
         Debug.Log(chosenElement); 
         UpdateGameManager();
     }
@@ -92,7 +94,8 @@ public class PlayerController : MonoBehaviour
             return;
         
         ReverseElementOrder();
-        Cycle();
+        PlayerElements.Enqueue(chosenElement);
+        chosenElement = PlayerElements.Dequeue();
         Debug.Log(chosenElement);
         ReverseElementOrder();
        UpdateGameManager();
