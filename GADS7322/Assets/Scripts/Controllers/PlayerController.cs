@@ -68,9 +68,6 @@ public class PlayerController : MonoBehaviour
     {
         if(!contextCallback.performed)
             return;
-        
-        
-        Debug.Log("jumping");
 
         Vector2 JumpDirection = new Vector2(playerBody.linearVelocity.x, jumpHeight*JumpSpeed);
 
@@ -84,7 +81,6 @@ public class PlayerController : MonoBehaviour
         
         PlayerElements.Enqueue(chosenElement);
         chosenElement = PlayerElements.Dequeue();
-        Debug.Log(chosenElement); 
         UpdateGameManager();
     }
 
@@ -96,7 +92,6 @@ public class PlayerController : MonoBehaviour
         ReverseElementOrder();
         PlayerElements.Enqueue(chosenElement);
         chosenElement = PlayerElements.Dequeue();
-        Debug.Log(chosenElement);
         ReverseElementOrder();
        UpdateGameManager();
     }
