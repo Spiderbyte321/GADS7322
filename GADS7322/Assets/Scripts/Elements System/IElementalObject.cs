@@ -4,9 +4,9 @@ using UnityEngine;
 
 public abstract class IElementalObject :MonoBehaviour
 {
-
+    [Header("Base Components")]
     [SerializeField] protected EElement objectElement;
-    [SerializeField] protected GameObject ObjectToHide;
+    [SerializeField] protected bool startActive;
 
     private void OnEnable()
     {
@@ -19,23 +19,23 @@ public abstract class IElementalObject :MonoBehaviour
     }
 
 
-    public virtual void ReactToElement(EElement ATypeToCheck)
+    protected virtual void ReactToElement(EElement ATypeToCheck)
     {
         
         if(CheckType(ATypeToCheck))
-        { 
-          ObjectToHide.SetActive(true);  
+        {
+            throw new NotImplementedException("Implement correct element reaction");
         }
         else
         { 
-            ObjectToHide.SetActive(false);
+            throw new NotImplementedException("Implement Incorrect element reaction");
         }
     }
     
     
     
     
-    private bool CheckType(EElement AType)
+    protected virtual bool CheckType(EElement AType)
     {
         if (objectElement == AType)
         {
@@ -44,6 +44,11 @@ public abstract class IElementalObject :MonoBehaviour
            
 
         return false;
+    }
+    
+    protected virtual void OnValidate()
+    {
+        
     }
 
 

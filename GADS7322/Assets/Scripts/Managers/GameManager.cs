@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Managers
 {
-    public class GameManager:MonoBehaviour
+    public class GameManager:MonoBehaviour //hold a dictionary of players
     {
         public static GameManager Instance;
         

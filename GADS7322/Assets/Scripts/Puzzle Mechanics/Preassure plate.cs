@@ -5,7 +5,6 @@ public class Preassureplate : Key
 {
    private void OnTriggerEnter2D(Collider2D other)
    {
-      Debug.Log("Entered");
       Activate();
    }
 

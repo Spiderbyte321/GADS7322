@@ -21,7 +21,10 @@ public class PlayerController : MonoBehaviour
     
     private EElement chosenElement;
     private Queue<EElement> PlayerElements = new Queue<EElement>();
+    //private LinkedList<EElement> PlayerElements = new LinkedList<EElement>();
     private Stack<EElement> SwapStack = new Stack<EElement>();
+
+    public EElement ChosenElement => chosenElement;
 
     private void Start()
     {
@@ -49,6 +52,8 @@ public class PlayerController : MonoBehaviour
     {
         GameManager.Instance.PlayerSwitchedElement(chosenElement);
     }
+    
+    //private bool 
     
     
 

@@ -56,7 +56,7 @@ public abstract class Lock : MonoBehaviour
 
     protected virtual void Unlock()
     {
-          gameObject.SetActive(false);  
+        throw new NotImplementedException("Implement unlock");
     }
     
 }
