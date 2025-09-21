@@ -10,18 +10,17 @@ public class PlayerController : MonoBehaviour
     [Header("Player Components")]
     [SerializeField] private EElement[] AvailableElements;
     [SerializeField] private Rigidbody2D playerBody;
+    [SerializeField] private PlayerCharacter character;
     
     [Header("Player Values")]
     [SerializeField] private float maxMoveSpeed;
     [SerializeField] private float JumpSpeed;
     [SerializeField] private float jumpHeight;
     [SerializeField] private EElement defaultElement;
-
     
     
     private EElement chosenElement;
     private Queue<EElement> PlayerElements = new Queue<EElement>();
-    //private LinkedList<EElement> PlayerElements = new LinkedList<EElement>();
     private Stack<EElement> SwapStack = new Stack<EElement>();
 
     public EElement ChosenElement => chosenElement;
@@ -32,6 +31,22 @@ public class PlayerController : MonoBehaviour
         {
             PlayerElements.Enqueue(element);
         }
+
+        for(int i=0;i<AvailableElements.Length;i++)//make a character handle sprites and rest of bullshit
+        {
+            chosenElement = PlayerElements.Dequeue();
+
+            if(chosenElement == defaultElement)
+            {
+                break;
+            }
+            
+            PlayerElements.Enqueue(chosenElement);
+        }
+        
+        character.SetSprite(chosenElement);
+
+        Debug.Log(PlayerElements.Count);
     }
 
 
@@ -53,7 +68,6 @@ public class PlayerController : MonoBehaviour
         GameManager.Instance.PlayerSwitchedElement(chosenElement);
     }
     
-    //private bool 
     
     
 
@@ -79,14 +93,23 @@ public class PlayerController : MonoBehaviour
         playerBody.linearVelocity = JumpDirection;
     }
 
-    public void CycleElementForward(InputAction.CallbackContext contextCallback)
+    public void CycleElementForward(InputAction.CallbackContext contextCallback)//peek the queueu if same as player two just enqueu it and pop again
     {
         if(!contextCallback.performed)
             return;
+
+        if(GameManager.Instance.Players[this].chosenElement == PlayerElements.Peek())
+        {
+            PlayerElements.Enqueue(chosenElement);
+            PlayerElements.Enqueue(PlayerElements.Dequeue());
+        }
+        
         
         PlayerElements.Enqueue(chosenElement);
         chosenElement = PlayerElements.Dequeue();
         UpdateGameManager();
+        character.SetSprite(chosenElement);
+        Debug.Log(ChosenElement);
     }
 
     public void CycleElementBackward(InputAction.CallbackContext contextCallback)
@@ -95,10 +118,20 @@ public class PlayerController : MonoBehaviour
             return;
         
         ReverseElementOrder();
+        
+        if(GameManager.Instance.Players[this].chosenElement == PlayerElements.Peek())
+        {
+            PlayerElements.Enqueue(chosenElement);
+            PlayerElements.Enqueue(PlayerElements.Dequeue());
+        }
+        
+        
         PlayerElements.Enqueue(chosenElement);
         chosenElement = PlayerElements.Dequeue();
         ReverseElementOrder();
        UpdateGameManager();
+       character.SetSprite(chosenElement);
+       Debug.Log(ChosenElement);
     }
     
     

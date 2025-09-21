@@ -82,7 +82,7 @@ SpriteRenderer:
   m_Color: {r: 0.14168024, g: 0.356887, b: 0.7584905, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
+  m_DrawMode: 1
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -130,7 +130,7 @@ PolygonCollider2D:
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
-    drawMode: 0
+    drawMode: 1
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 7620722724421749187}
   - component: {fileID: 1688791090637805867}
   - component: {fileID: 6449733307727707495}
+  - component: {fileID: 5403975858500107920}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Player
@@ -214,6 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AvailableElements: 000000000100000002000000
   playerBody: {fileID: 5234655586688749989}
+  character: {fileID: 5403975858500107920}
   maxMoveSpeed: 6
   JumpSpeed: 3
   jumpHeight: 3
@@ -368,3 +370,21 @@ MonoBehaviour:
   m_DefaultActionMap: Player2
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &5403975858500107920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8520007053772504861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 961e85d6280c0954e8dafacfacd79f33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elements: 000000000100000002000000
+  sprites:
+  - {fileID: -6559896079993884810, guid: 41173da0943a10942b691eaa7215ada0, type: 3}
+  - {fileID: 7984435940235599971, guid: f7d549e687e508e42b04d47f4482445a, type: 3}
+  - {fileID: 3812603827402858778, guid: a47647e99fed35d49abbebe65deaff83, type: 3}
+  spriteRenderer: {fileID: 8026816961205430332}
