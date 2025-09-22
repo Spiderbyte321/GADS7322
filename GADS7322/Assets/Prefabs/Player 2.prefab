@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5234655586688749989}
   m_Layer: 0
   m_Name: Sprite
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.14168024, g: 0.356887, b: 0.7584905, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
@@ -175,9 +175,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7620722724421749187}
+  - component: {fileID: 5403975858500107920}
   - component: {fileID: 1688791090637805867}
   - component: {fileID: 6449733307727707495}
-  - component: {fileID: 5403975858500107920}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Player
@@ -201,6 +201,24 @@ Transform:
   - {fileID: 1309821266657532647}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5403975858500107920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8520007053772504861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 961e85d6280c0954e8dafacfacd79f33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elements: 000000000100000002000000
+  sprites:
+  - {fileID: -6559896079993884810, guid: 41173da0943a10942b691eaa7215ada0, type: 3}
+  - {fileID: 7984435940235599971, guid: f7d549e687e508e42b04d47f4482445a, type: 3}
+  - {fileID: 3812603827402858778, guid: a47647e99fed35d49abbebe65deaff83, type: 3}
+  spriteRenderer: {fileID: 8026816961205430332}
 --- !u!114 &1688791090637805867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,7 +236,7 @@ MonoBehaviour:
   character: {fileID: 5403975858500107920}
   maxMoveSpeed: 6
   JumpSpeed: 3
-  jumpHeight: 3
+  jumpHeight: 2.5
   defaultElement: 0
 --- !u!114 &6449733307727707495
 MonoBehaviour:
@@ -370,21 +388,3 @@ MonoBehaviour:
   m_DefaultActionMap: Player2
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &5403975858500107920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8520007053772504861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 961e85d6280c0954e8dafacfacd79f33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  elements: 000000000100000002000000
-  sprites:
-  - {fileID: -6559896079993884810, guid: 41173da0943a10942b691eaa7215ada0, type: 3}
-  - {fileID: 7984435940235599971, guid: f7d549e687e508e42b04d47f4482445a, type: 3}
-  - {fileID: 3812603827402858778, guid: a47647e99fed35d49abbebe65deaff83, type: 3}
-  spriteRenderer: {fileID: 8026816961205430332}

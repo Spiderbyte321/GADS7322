@@ -10,14 +10,18 @@ public class Door : Lock
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log(other.gameObject.CompareTag("Player"));
+        
         if(!other.gameObject.CompareTag("Player"))
            return; 
         
+        Debug.Log("loading");
         SceneManager.LoadScene(levelToLoad);
     }
 
     protected override void Unlock()
     {
+        Debug.Log("unlocking");
         collisionBox.isTrigger = true;
     }
 }

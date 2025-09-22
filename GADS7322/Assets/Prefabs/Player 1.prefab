@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2986632123159063792}
+  - component: {fileID: -6076128517671501575}
   - component: {fileID: 826821822869813404}
   - component: {fileID: 597960616803799766}
-  - component: {fileID: -6076128517671501575}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -35,6 +35,24 @@ Transform:
   - {fileID: 4912918079088746375}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-6076128517671501575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338649114485879641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 961e85d6280c0954e8dafacfacd79f33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elements: 000000000100000002000000
+  sprites:
+  - {fileID: -6559896079993884810, guid: 41173da0943a10942b691eaa7215ada0, type: 3}
+  - {fileID: 7984435940235599971, guid: f7d549e687e508e42b04d47f4482445a, type: 3}
+  - {fileID: 3812603827402858778, guid: a47647e99fed35d49abbebe65deaff83, type: 3}
+  spriteRenderer: {fileID: 5574260652718831779}
 --- !u!114 &826821822869813404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52,7 +70,7 @@ MonoBehaviour:
   character: {fileID: -6076128517671501575}
   maxMoveSpeed: 6
   JumpSpeed: 3
-  jumpHeight: 3
+  jumpHeight: 2.5
   defaultElement: 1
 --- !u!114 &597960616803799766
 MonoBehaviour:
@@ -204,24 +222,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player1
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &-6076128517671501575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 338649114485879641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 961e85d6280c0954e8dafacfacd79f33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  elements: 000000000100000002000000
-  sprites:
-  - {fileID: -6559896079993884810, guid: 41173da0943a10942b691eaa7215ada0, type: 3}
-  - {fileID: 7984435940235599971, guid: f7d549e687e508e42b04d47f4482445a, type: 3}
-  - {fileID: 3812603827402858778, guid: a47647e99fed35d49abbebe65deaff83, type: 3}
-  spriteRenderer: {fileID: 5574260652718831779}
 --- !u!1 &741594690785710972
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 8125349182918844307}
   m_Layer: 0
   m_Name: Sprite
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -44,11 +44,8 @@ public class PlayerController : MonoBehaviour
             PlayerElements.Enqueue(chosenElement);
         }
         
-        Debug.Log(PlayerElements.Count);
         character.SetSprite(chosenElement);
-        
     }
-
 
     private void ReverseElementOrder()
     {

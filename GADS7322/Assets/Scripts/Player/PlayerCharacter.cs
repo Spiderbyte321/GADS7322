@@ -9,18 +9,17 @@ public class PlayerCharacter : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
 
     private Dictionary<EElement, Sprite> playerSprites = new Dictionary<EElement, Sprite>();
-    
-    
-    void Start()
+
+
+
+    private void Awake()
     {
         for(int i=0;i<elements.Length;i++)
         {
             playerSprites.Add(elements[i],sprites[i]);
         }
     }
-
-
-
+    
     public void SetSprite(EElement currentElement)
     {
         spriteRenderer.sprite = playerSprites[currentElement];

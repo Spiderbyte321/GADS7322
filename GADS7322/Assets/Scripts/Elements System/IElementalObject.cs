@@ -48,7 +48,7 @@ public abstract class IElementalObject :MonoBehaviour
     
     protected virtual void OnValidate()
     {
-        
+        throw new NotImplementedException();
     }
 
 
