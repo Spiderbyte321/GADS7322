@@ -44,9 +44,9 @@ public class PlayerController : MonoBehaviour
             PlayerElements.Enqueue(chosenElement);
         }
         
-        character.SetSprite(chosenElement);
-
         Debug.Log(PlayerElements.Count);
+        character.SetSprite(chosenElement);
+        
     }
 
 
@@ -100,7 +100,6 @@ public class PlayerController : MonoBehaviour
 
         if(GameManager.Instance.Players[this].chosenElement == PlayerElements.Peek())
         {
-            PlayerElements.Enqueue(chosenElement);
             PlayerElements.Enqueue(PlayerElements.Dequeue());
         }
         
