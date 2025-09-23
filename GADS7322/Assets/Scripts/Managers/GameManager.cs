@@ -23,6 +23,10 @@ namespace Managers
     
         public static event ElementSwitchAction OnElementSwitch;
 
+        public delegate void AllChosenElementsAction(EElement[] ChosenElements);
+
+        public static event AllChosenElementsAction OnAllElements;
+
         private void Start()
         {
 
@@ -43,7 +47,16 @@ namespace Managers
 
         public void PlayerSwitchedElement(EElement CurrentElement)
         {
-           OnElementSwitch?.Invoke(CurrentElement); 
+           OnElementSwitch?.Invoke(CurrentElement);
+
+           List<EElement> CurrentElements = new List<EElement>();
+
+           foreach (KeyValuePair<PlayerController,PlayerController> controllers in players)
+           {
+               CurrentElements.Add(players[controllers.Key].ChosenElement);
+           }
+           
+           OnAllElements?.Invoke(CurrentElements.ToArray());
         }
 
 

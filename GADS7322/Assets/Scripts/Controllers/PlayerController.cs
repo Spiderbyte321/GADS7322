@@ -8,10 +8,11 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [Header("Player Components")]
-    [SerializeField] private EElement[] AvailableElements;
     [SerializeField] private Rigidbody2D playerBody;
     [SerializeField] private PlayerCharacter character;
-    
+     private EElement[] AvailableElements;
+     
+     
     [Header("Player Values")]
     [SerializeField] private float maxMoveSpeed;
     [SerializeField] private float JumpSpeed;
@@ -27,6 +28,9 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+
+        AvailableElements = character.Elements;
+        
         foreach (EElement element in AvailableElements)
         {
             PlayerElements.Enqueue(element);

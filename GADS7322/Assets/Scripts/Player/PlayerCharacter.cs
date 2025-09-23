@@ -10,6 +10,8 @@ public class PlayerCharacter : MonoBehaviour
 
     private Dictionary<EElement, Sprite> playerSprites = new Dictionary<EElement, Sprite>();
 
+    public EElement[] Elements => elements;
+
 
 
     private void Awake()
