@@ -27,15 +27,17 @@ public class ElementalDisplay : MonoBehaviour
     
     public void greyOutChosenElements(EElement[] givenElements)
     {
-        foreach (KeyValuePair<EElement,bool> elements in activeElement)
+
+        for(int i = 0; i < activeElement.Count; i++)
         {
-            activeElement[elements.Key] = false;
+            activeElement[playerElements[i]] = false;
         }
 
         for(int i = 0; i < givenElements.Length; i++)
         {
             activeElement[givenElements[i]] = true;
         }
+        
         
         foreach (KeyValuePair<EElement,bool> elements in activeElement)
         {
