@@ -42,21 +42,23 @@ namespace Managers
             
             players.Add(playersInScene[0],playersInScene[1]);
             players.Add(playersInScene[1],playersInScene[0]);
+            
+            UpdateUI();
         }
 
 
-        public void PlayerSwitchedElement(EElement CurrentElement)
+        
+
+        private void UpdateUI()
         {
-           OnElementSwitch?.Invoke(CurrentElement);
-
-           List<EElement> CurrentElements = new List<EElement>();
-
-           foreach (KeyValuePair<PlayerController,PlayerController> controllers in players)
-           {
-               CurrentElements.Add(players[controllers.Key].ChosenElement);
-           }
-           
-           OnAllElements?.Invoke(CurrentElements.ToArray());
+            List<EElement> CurrentElements = new List<EElement>();
+            
+            foreach (KeyValuePair<PlayerController,PlayerController> controllers in players)
+            {
+                CurrentElements.Add(players[controllers.Key].ChosenElement);
+            }
+                       
+            OnAllElements?.Invoke(CurrentElements.ToArray());
         }
 
 
@@ -67,6 +69,12 @@ namespace Managers
               Array.Resize(ref playersInScene,2);
               Debug.Log("Too many players resized array");
             }
+        }
+        public void PlayerSwitchedElement(EElement CurrentElement)
+        {
+            OnElementSwitch?.Invoke(CurrentElement);
+         
+            UpdateUI();
         }
     }
 }
