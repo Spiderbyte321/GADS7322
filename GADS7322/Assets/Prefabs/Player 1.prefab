@@ -47,10 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 961e85d6280c0954e8dafacfacd79f33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elements: 000000000100000002000000
+  elements: 01000000000000000300000002000000
   sprites:
   - {fileID: -6559896079993884810, guid: 41173da0943a10942b691eaa7215ada0, type: 3}
   - {fileID: 7984435940235599971, guid: f7d549e687e508e42b04d47f4482445a, type: 3}
+  - {fileID: 3812603827402858778, guid: a47647e99fed35d49abbebe65deaff83, type: 3}
   - {fileID: 3812603827402858778, guid: a47647e99fed35d49abbebe65deaff83, type: 3}
   spriteRenderer: {fileID: 5574260652718831779}
 --- !u!114 &826821822869813404
@@ -65,7 +66,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e6ea0d5e38a6564eb6013a97bfba256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AvailableElements: 000000000100000002000000
   playerBody: {fileID: 8125349182918844307}
   character: {fileID: -6076128517671501575}
   maxMoveSpeed: 6

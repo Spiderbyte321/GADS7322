@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class ElementalObjeect : IElementalObject//base elemental platform
+public class ElementalObjeect : AElementalObject//base elemental platform
 {
     [Header("Base Platform Components")]
     [SerializeField] private Collider2D collisionBox;

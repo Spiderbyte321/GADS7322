@@ -109,7 +109,6 @@ public class PlayerController : MonoBehaviour
         chosenElement = PlayerElements.Dequeue();
         UpdateGameManager();
         character.SetSprite(chosenElement);
-        Debug.Log(ChosenElement);
     }
 
     public void CycleElementBackward(InputAction.CallbackContext contextCallback)

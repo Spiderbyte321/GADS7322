@@ -2,22 +2,26 @@ using System;
 using Managers;
 using UnityEngine;
 
-public abstract class IElementalObject :MonoBehaviour
+public abstract class AElementalObject :MonoBehaviour
 {
     [Header("Base Components")]
     [SerializeField] protected EElement objectElement;
+    
+    [Header("EditorComponent")]
     [SerializeField] protected bool startActive;
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         GameManager.OnElementSwitch += ReactToElement;
     }
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
         GameManager.OnElementSwitch -= ReactToElement;
     }
 
+
+    
 
     protected virtual void ReactToElement(EElement ATypeToCheck)
     {
@@ -31,19 +35,11 @@ public abstract class IElementalObject :MonoBehaviour
             throw new NotImplementedException("Implement Incorrect element reaction");
         }
     }
-    
-    
-    
+
     
     protected virtual bool CheckType(EElement AType)
     {
-        if (objectElement == AType)
-        {
-            return true; 
-        }
-           
-
-        return false;
+        return objectElement == AType;
     }
     
     protected virtual void OnValidate()

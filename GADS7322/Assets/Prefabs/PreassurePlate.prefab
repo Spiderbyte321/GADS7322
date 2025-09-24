@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 308842304920132551}
   - component: {fileID: 7650804118685641332}
   - component: {fileID: 2417666870100581984}
-  - component: {fileID: 239509883075181356}
+  - component: {fileID: 6153073686947023934}
   m_Layer: 0
   m_Name: PreassurePlate
   m_TagString: Untagged
@@ -104,8 +104,8 @@ MonoBehaviour:
   pressedDown: {fileID: -1225779371589942780, guid: 5b97bf7d41df57f4080ccb863db0dce6, type: 3}
   pressedUp: {fileID: 2324577762852988098, guid: 10f86b1ec0df07c46a47b6ead53f3c89, type: 3}
   spriteRenderer: {fileID: 7650804118685641332}
---- !u!58 &239509883075181356
-CircleCollider2D:
+--- !u!61 &6153073686947023934
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -139,4 +139,14 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 2.26, y: 0.66}
+  m_EdgeRadius: 0

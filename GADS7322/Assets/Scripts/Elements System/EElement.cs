@@ -4,5 +4,6 @@ public enum EElement
 {
     Water,
     Fire,
-    Grass
+    Earth,
+    Wind
 }

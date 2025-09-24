@@ -1,18 +1,22 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class UIToggleable : MonoBehaviour
 {
     [SerializeField] private Sprite defaultSprite;
     [SerializeField] private Sprite toggledSprite;
-    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] protected SpriteRenderer spriteRenderer;
 
-    private bool toggled = false;
+    protected bool toggled = false;
 
-    public void Toggle()
+    public virtual void Toggle()
     {
         toggled = !toggled;
         spriteRenderer.sprite = toggled ? toggledSprite : defaultSprite;
     }
+    
+    
 
 
 

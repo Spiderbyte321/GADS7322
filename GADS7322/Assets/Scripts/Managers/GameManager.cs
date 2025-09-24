@@ -44,6 +44,8 @@ namespace Managers
             players.Add(playersInScene[1],playersInScene[0]);
             
             UpdateUI();
+            PlayerSwitchedElement(playersInScene[0].ChosenElement);
+            PlayerSwitchedElement(playersInScene[1].ChosenElement);
         }
 
 
@@ -53,7 +55,7 @@ namespace Managers
         {
             List<EElement> CurrentElements = new List<EElement>();
             
-            foreach (KeyValuePair<PlayerController,PlayerController> controllers in players)
+            foreach(KeyValuePair<PlayerController,PlayerController> controllers in players)
             {
                 CurrentElements.Add(players[controllers.Key].ChosenElement);
             }
