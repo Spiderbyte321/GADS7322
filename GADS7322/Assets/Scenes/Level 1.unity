@@ -1458,6 +1458,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3506620374537063348, guid: cf0add75ae3aba44d81ad4731edf89df, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3570738025418136027, guid: cf0add75ae3aba44d81ad4731edf89df, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1545,6 +1549,10 @@ PrefabInstance:
     - target: {fileID: 6845944808043535316, guid: cf0add75ae3aba44d81ad4731edf89df, type: 3}
       propertyPath: m_Name
       value: RightElement
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871709399400346797, guid: cf0add75ae3aba44d81ad4731edf89df, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7041846693230530138, guid: cf0add75ae3aba44d81ad4731edf89df, type: 3}
       propertyPath: m_Sprite
