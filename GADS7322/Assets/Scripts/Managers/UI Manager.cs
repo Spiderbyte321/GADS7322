@@ -27,6 +27,7 @@ public class UIManager : MonoBehaviour
     private void OnEnable()
     {
         GameManager.OnAllElements += UpdateDisplays;
+        Key.OnKeyToggled += Toggle;
     }
 
     private void OnDisable()
@@ -40,6 +41,11 @@ public class UIManager : MonoBehaviour
         {
             display.greyOutChosenElements(elements);
         }
+    }
+
+    private void Toggle(Key toggledKey)
+    {
+        togglesDictionary[toggledKey].Toggle();
     }
 
     private void OnValidate()

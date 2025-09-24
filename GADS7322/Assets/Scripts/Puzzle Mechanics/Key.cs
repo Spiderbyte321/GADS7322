@@ -11,14 +11,20 @@ public abstract class Key : MonoBehaviour
     
     public static event KeyDeactivated KeyDeactivatedAction;
 
+    public delegate void KeyToggledAction(Key AKey);
+
+    public static event KeyToggledAction OnKeyToggled;
+
 
     protected void Activate()
     {
         KeyActivateAction?.Invoke(this,true);
+        OnKeyToggled?.Invoke(this);
     }
 
     protected void Deactivate()
     {
         KeyActivateAction?.Invoke(this,false);
+        OnKeyToggled?.Invoke(this);
     }
 }

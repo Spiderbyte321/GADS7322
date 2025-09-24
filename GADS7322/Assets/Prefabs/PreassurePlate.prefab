@@ -101,6 +101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8930b2504649f46b13434d8a2084c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pressedDown: {fileID: -1225779371589942780, guid: 5b97bf7d41df57f4080ccb863db0dce6, type: 3}
+  pressedUp: {fileID: 2324577762852988098, guid: 10f86b1ec0df07c46a47b6ead53f3c89, type: 3}
+  spriteRenderer: {fileID: 7650804118685641332}
 --- !u!58 &239509883075181356
 CircleCollider2D:
   m_ObjectHideFlags: 0
