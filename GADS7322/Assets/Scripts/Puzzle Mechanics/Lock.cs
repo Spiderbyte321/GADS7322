@@ -17,7 +17,7 @@ public abstract class Lock : MonoBehaviour
 
     private void OnDisable()
     {
-        Key.KeyActivateAction+= UpdateKeys;
+        Key.KeyActivateAction-= UpdateKeys;
         Key.KeyDeactivatedAction -= UpdateKeys;
     }
 

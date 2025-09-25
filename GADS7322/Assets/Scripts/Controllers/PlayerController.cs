@@ -128,7 +128,6 @@ public class PlayerController : MonoBehaviour
         
         if(GameManager.Instance.Players[this].chosenElement == PlayerElements.Peek())
         {
-            PlayerElements.Enqueue(chosenElement);
             PlayerElements.Enqueue(PlayerElements.Dequeue());
         }
         
@@ -140,11 +139,7 @@ public class PlayerController : MonoBehaviour
        character.SetSprite(chosenElement);
        SoundManager.Instance.PlaySoundEffect("switch");
     }
-
-    public void PauseGame()
-    {
-        OnGamePause?.Invoke();
-    }
+    
     
     
     

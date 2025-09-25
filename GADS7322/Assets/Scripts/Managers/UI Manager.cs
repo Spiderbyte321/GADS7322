@@ -40,19 +40,19 @@ public class UIManager : MonoBehaviour
     {
         isPaused = !isPaused;
 
-        if (isPaused)
+        if(isPaused)
         {
-            Time.timeScale = 1;
             pauseScreen.alpha = 1;
             pauseScreen.interactable = true;
             pauseScreen.blocksRaycasts = true;
+            Time.timeScale = 1;
         }
         else
         {
-            Time.timeScale = 0;
             pauseScreen.alpha = 0;
             pauseScreen.interactable = false;
             pauseScreen.blocksRaycasts = false;
+            Time.timeScale = 0.1f;
         }
     }
     
