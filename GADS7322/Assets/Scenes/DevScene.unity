@@ -426,6 +426,30 @@ PrefabInstance:
       propertyPath: 'sprites.Array.data[3]'
       value: 
       objectReference: {fileID: 3812603827402858778, guid: a47647e99fed35d49abbebe65deaff83, type: 3}
+    - target: {fileID: 6449733307727707495, guid: 35bc51dc457ebae47b18cc2cc8e42652, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6449733307727707495, guid: 35bc51dc457ebae47b18cc2cc8e42652, type: 3}
+      propertyPath: m_NeverAutoSwitchControlSchemes
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6449733307727707495, guid: 35bc51dc457ebae47b18cc2cc8e42652, type: 3}
+      propertyPath: m_ActionEvents.Array.data[18].m_ActionId
+      value: 3e7c6773-3135-4c0e-9b9d-63ccdf8aa4bb
+      objectReference: {fileID: 0}
+    - target: {fileID: 6449733307727707495, guid: 35bc51dc457ebae47b18cc2cc8e42652, type: 3}
+      propertyPath: m_ActionEvents.Array.data[19].m_ActionId
+      value: 8fe2da76-203f-4396-8467-3664733b89ee
+      objectReference: {fileID: 0}
+    - target: {fileID: 6449733307727707495, guid: 35bc51dc457ebae47b18cc2cc8e42652, type: 3}
+      propertyPath: m_ActionEvents.Array.data[18].m_ActionName
+      value: 'Player1/Pause[/Keyboard/escape]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6449733307727707495, guid: 35bc51dc457ebae47b18cc2cc8e42652, type: 3}
+      propertyPath: m_ActionEvents.Array.data[19].m_ActionName
+      value: 'Player2/Pause[/Keyboard/escape]'
+      objectReference: {fileID: 0}
     - target: {fileID: 7620722724421749187, guid: 35bc51dc457ebae47b18cc2cc8e42652, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.4569836
@@ -673,12 +697,7 @@ MonoBehaviour:
   playerDisplays:
   - {fileID: 1522607422744669784}
   - {fileID: 1522607422744669783}
-  togglesInput:
-  - {fileID: 1146747745}
-  - {fileID: 897457920}
-  keysInput:
-  - {fileID: 1301315082}
-  - {fileID: 2020583810}
+  pauseScreen: {fileID: 0}
 --- !u!1 &864164591 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3697377870632362997, guid: 8e54df91317d26b4984afaaed6014f91, type: 3}
@@ -722,33 +741,11 @@ Transform:
   - {fileID: 2020583808}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &897457920 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6633505668227974959, guid: cf0add75ae3aba44d81ad4731edf89df, type: 3}
-  m_PrefabInstance: {fileID: 1522607422744669781}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ed4aeea913af7b4091ad8b7288d60ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1049796965 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3697377870632362997, guid: 8e54df91317d26b4984afaaed6014f91, type: 3}
   m_PrefabInstance: {fileID: 4227119937812535318}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1146747745 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4111107760965518603, guid: cf0add75ae3aba44d81ad4731edf89df, type: 3}
-  m_PrefabInstance: {fileID: 1522607422744669781}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ed4aeea913af7b4091ad8b7288d60ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1197211827
 GameObject:
   m_ObjectHideFlags: 0
@@ -844,11 +841,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8930b2504649f46b13434d8a2084c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!58 &1301315083 stripped
-CircleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 239509883075181356, guid: 8e54df91317d26b4984afaaed6014f91, type: 3}
-  m_PrefabInstance: {fileID: 4227119937812535318}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1301315085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -863,7 +855,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectElement: 0
   startActive: 0
-  collisionBox: {fileID: 1301315083}
+  collisionBox: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
+  inactiveColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &1455401855 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1296319706713102185, guid: 6bf7e5336d3b5e444af82145f3974702, type: 3}
@@ -1171,11 +1166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8930b2504649f46b13434d8a2084c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!58 &2020583812 stripped
-CircleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 239509883075181356, guid: 8e54df91317d26b4984afaaed6014f91, type: 3}
-  m_PrefabInstance: {fileID: 2020583807}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2020583813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1190,7 +1180,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectElement: 0
   startActive: 0
-  collisionBox: {fileID: 2020583812}
+  collisionBox: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
+  inactiveColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &1522607422744669781
 PrefabInstance:
   m_ObjectHideFlags: 0

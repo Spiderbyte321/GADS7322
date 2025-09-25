@@ -26,6 +26,10 @@ public class PlayerController : MonoBehaviour
 
     public EElement ChosenElement => chosenElement;
 
+    public delegate void PauseGameAction();
+
+    public static event PauseGameAction OnGamePause;
+
     private void Start()
     {
 
@@ -62,6 +66,8 @@ public class PlayerController : MonoBehaviour
         {
             PlayerElements.Enqueue(SwapStack.Pop());
         }
+        
+        
     }
 
     private void UpdateGameManager()
@@ -92,6 +98,7 @@ public class PlayerController : MonoBehaviour
         Vector2 JumpDirection = new Vector2(playerBody.linearVelocity.x, jumpHeight*JumpSpeed);
 
         playerBody.linearVelocity = JumpDirection;
+        SoundManager.Instance.PlaySoundEffect("jump");
     }
 
     public void CycleElementForward(InputAction.CallbackContext contextCallback)//peek the queueu if same as player two just enqueu it and pop again
@@ -109,6 +116,7 @@ public class PlayerController : MonoBehaviour
         chosenElement = PlayerElements.Dequeue();
         UpdateGameManager();
         character.SetSprite(chosenElement);
+        SoundManager.Instance.PlaySoundEffect("switch");
     }
 
     public void CycleElementBackward(InputAction.CallbackContext contextCallback)
@@ -130,7 +138,12 @@ public class PlayerController : MonoBehaviour
         ReverseElementOrder();
        UpdateGameManager();
        character.SetSprite(chosenElement);
-       Debug.Log(ChosenElement);
+       SoundManager.Instance.PlaySoundEffect("switch");
+    }
+
+    public void PauseGame()
+    {
+        OnGamePause?.Invoke();
     }
     
     

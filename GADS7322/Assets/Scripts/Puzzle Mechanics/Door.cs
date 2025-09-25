@@ -19,7 +19,7 @@ public class Door : Lock
 
     protected override void Unlock()
     {
-        Debug.Log("unlocking");
+       SoundManager.Instance.PlaySoundEffect("open");
         collisionBox.isTrigger = true;
     }
 }

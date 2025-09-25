@@ -24,7 +24,7 @@ public class ElementalObjeect : AElementalObject//base elemental platform
     }
 
 
-    protected override void OnValidate()
+    protected void OnValidate()
     {
         if(spriteRenderer == null|| collisionBox == null|| revealedSprite==null|| hiddenSprite ==null)
             return;

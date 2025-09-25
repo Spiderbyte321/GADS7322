@@ -57,10 +57,5 @@ public class ElementalPreassurePlate : AElementalObject
             spriteRenderer.color = inactiveColor;
         }
     }
-
-
-    protected override void OnValidate()
-    {
-        
-    }
+    
 }

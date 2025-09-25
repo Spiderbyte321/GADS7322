@@ -42,10 +42,6 @@ public abstract class AElementalObject :MonoBehaviour
         return objectElement == AType;
     }
     
-    protected virtual void OnValidate()
-    {
-        throw new NotImplementedException();
-    }
 
 
 }
